@@ -11,6 +11,7 @@ window.addEventListener("DOMContentLoaded", function () {
   function success() {
     form.reset();
   }
+  // function success() {
 
   function error() {
     status.classList.add("error");

@@ -141,7 +141,7 @@
 
             <script>
               function checkServerStatus(){
-                fetch('http://chat.adityav.au/healthcheck')
+                fetch('https://chat.adityav.au/healthcheck')
                   .then(function(response) {
                       if (!response.ok) {
                           throw Error(response.statusText);

@@ -373,6 +373,26 @@ header #particles-js {
   position: relative;
 }
 
+#logo2{
+  height: 50px;
+  width: 10px;
+}
+#logo {
+  margin: auto 0;
+
+  top: 3px;
+  position: relative;
+  width: 10px;
+  aspect-ratio: 1000 / 556;
+  user-select: none;
+}
+
+#logo > img {
+  margin: auto 0;
+  width: 100%;
+  position: absolute;
+}
+
 header #particles-js canvas {
   position: absolute;
   top: 0;
@@ -482,6 +502,7 @@ header .hero h1,
 header .hero p {
   color: white;
 }
+
 
 header .hero h1,
 header .hero h2 span {
@@ -670,17 +691,6 @@ header .seperator-skew svg .fill-white {
   }
 }
 
-#logo {
-  position: relative;
-
-  aspect-ratio: 1000 / 556;
-  user-select: none;
-}
-
-#logo > img {
-  width: 100%;
-  position: absolute;
-}
 
 
 
@@ -743,14 +753,12 @@ header .seperator-skew svg .fill-white {
 }
 
 .projects .project-row #webscraper {
-  background-image: url("../img/top10songs.JPG");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   transition: background-image 0.2s ease-in-out;
 }
 
 .projects .project-row #webscraper:hover {
-  background-image: url("../img/top10songs.gif");
 }
 
 @media screen and (max-width: 860px) {

@@ -672,7 +672,7 @@ header .seperator-skew svg .fill-white {
 
 #logo {
   position: relative;
-  width: 300px;
+
   aspect-ratio: 1000 / 556;
   user-select: none;
 }

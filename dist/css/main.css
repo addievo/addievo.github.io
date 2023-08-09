@@ -589,20 +589,6 @@ header .scroll-btn-container div a span:nth-child(3) {
   animation-delay: -0.4s;
 }
 
-#logo {
-  position: relative;
-  width: 300px;
-  aspect-ratio: 1000 / 556;
-  user-select: none;
-  z-index: 0;
-}
-
-#logo > img {
-  width: 100%;
-  position: absolute;
-  z-index: 0;
-}
-
 @keyframes animate {
   0% {
     opacity: 0;
@@ -681,7 +667,6 @@ header .seperator-skew svg .fill-white {
   }
   header #particles-js {
     height: 70vh;
-    z-index: -2;
   }
 }
 

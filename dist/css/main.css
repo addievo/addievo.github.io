@@ -815,6 +815,7 @@ header .seperator-skew svg .fill-white {
   box-shadow: 0 0.15rem 0.6rem rgba(43, 52, 56, 0.15);
   padding: 40px;
   border-radius: 3px;
+  margin-bottom: 3em;
 }
 
 .education .container .education-card > *:last-child {

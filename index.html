@@ -1,1 +1,595 @@
-<meta http-equiv="refresh" content="0; url=https://addievo.github.io/dist/index.html">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Aditya Varma | Software Developer</title>
+
+  <!-- General tags -->
+  <meta name="title" content="Aditya Varma | Software Developer" />
+  <meta name="description" content="Discover the portfolio of Aditya Varma, a dedicated Computer Science student. Explore projects, achievements, and skills." />
+
+  <!-- Open Graph tags -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://adityav.au" />
+  <meta property="og:title" content="Aditya Varma | Software Developer" />
+  <meta property="og:description" content="Discover the portfolio of Aditya Varma, a dedicated Computer Science student. Explore projects, achievements, and skills." />
+  <meta property="og:image" content="https://adityav.au/dist/img/logob.png" />
+
+  <!-- Twitter Card tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://adityav.au" />
+  <meta name="twitter:title" content="Aditya Varma | Software Developer" />
+  <meta name="twitter:description" content="Discover the portfolio of Aditya Varma, a dedicated Computer Science student. Explore projects, achievements, and skills." />
+  <meta name="twitter:image" content="https://adityav.au/dist/img/logob.png" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Alfa Slab One font -->
+  <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;600;700;800;900&display=swap" />
+
+  <!-- Font Awesome icons -->
+  <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+          integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+          crossorigin="anonymous"
+  />
+  <link rel="icon" href="dist/img/favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="dist/img/favicon.png" />
+
+  <!-- Animation library styles -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+  <!-- Iconify Icons -->
+  <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+
+  <link rel="stylesheet" href="dist/css/main.css" />
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+</head>
+  <body>
+  <!-- HEADER -->
+  <header id="header">
+    <div id="particles-js">
+      <nav id="nav" data-aos="fade-in">
+        <div class="container nav-container">
+          <a href="http://adityav.au" id="logo2">
+            <div id="logo">
+              <img src="dist/img/img1.png" draggable="false" />
+              <img src="dist/img/img2.png" draggable="false" />
+              <img src="dist/img/img3.png" draggable="false" />
+              <img src="dist/img/img4.png" draggable="false" />
+              <img src="dist/img/img5.png" draggable="false" />
+            </div>
+          </a>
+          <ul class="hide-for-mobile nav-links flex">
+            <li>
+              <a href="#projects" class="link"><i class="fas fa-code"></i> Projects</a>
+            </li>
+            <li>
+              <a href="#skills" class="link"><i class="fas fa-tools"></i> Skills</a>
+            </li>
+            <li>
+              <a href="#education" class="link"><i class="fas fa-user-graduate"></i> Education</a>
+            </li>
+            <li>
+              <a href="#contact" class="link"><i class="fas fa-envelope"></i> Contact</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="mobile-menu hide-for-desktop">
+          <div class="container">
+            <div class="mobile-menu-links">
+              <ul class="flex">
+                <li>
+                  <a href="#projects" class="link blue-hover">Projects</a>
+                </li>
+                <li>
+                  <a href="#skills" class="link blue-hover">Skills</a>
+                </li>
+                <li>
+                  <a href="#education" class="link blue-hover">Education</a>
+                </li>
+                <li>
+                  <a href="#contact" class="link blue-hover">Contact</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <!-- HERO -->
+    <div class="hero">
+      <div data-aos="fade-up">
+        <h1 class="h1">Hi, I'm <span class="main-font text-blue">Addie</span></h1>
+        <p class="student" id="student">
+          I work at <a href="https://matrix.ai/" class="blue-link-underline" target="_blank">MatrixAI</a> on decentralised cybersecurity products. I'm also a computer science major at
+          <a href="https://www.uow.edu.au/" class="blue-link-underline" target="_blank">The University of Wollongong</a>, majoring in Cybersecurity and AI.
+        </p>
+        <div class="hero-btns">
+          <a href="https://github.com/addievo" class="btn-blue-outline mx-1" id="projects-btn" target="_blank"><i class="fab fa-github"></i> Github</a>
+          <a href="https://resume.adityav.au" id="resumeLink" target="_blank" class="btn-blue"><i class="fas fa-code"></i> Resume</a>
+
+          <script>
+            function checkServerStatus() {
+              fetch("https://chat.adityav.au/healthcheck")
+                      .then(function (response) {
+                        if (!response.ok) {
+                          throw Error(response.statusText);
+                        }
+                        console.log("Server is online");
+                      })
+                      .catch(function (error) {
+                        console.log("Server is offline");
+                        document.getElementById("resumeLink").href = "https://github.com/addievo/addievo.github.io/blob/f034aa08e18f38d7c7683b0c2a4a73e2a0f3adb5/Resume%20Updated%20-%2021.7.23.pdf";
+                      });
+            }
+
+            // Call the function when the page loads
+            window.onload = checkServerStatus;
+          </script>
+        </div>
+      </div>
+    </div>
+
+    <!-- SOCIAL LINKS -->
+    <div class="socials" data-aos="fade-in">
+      <ul>
+        <li class="bg-blue">
+          <a href="https://www.linkedin.com/in/addievo/" target="_blank"><span class="socials-text">LinkedIn</span> <i class="fab fa-linkedin fa-2x"></i></a>
+        </li>
+        <li class="bg-dark-grey">
+          <a href="https://github.com/addievo" target="_blank"><span class="socials-text">GitHub</span><i class="fab fa-github fa-2x"></i></a>
+        </li>
+        <li class="bg-white">
+          <a class="text-dark-grey" href="mailto:hello@adityav.au"><span class="socials-text">Email</span><i class="fas fa-envelope fa-2x"></i></a>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="projects">
+    <div class="container">
+      <h2 class="main-font">My<span class="text-blue main-font"> Projects</span></h2>
+      <div class="project-row" data-aos="fade-up">
+        <div class="project-left">
+          <img src="dist/img/pk_com.png" alt="" />
+        </div>
+        <div class="project-right">
+          <h3>Polykey.com - Product Marketing Website</h3>
+          <ul class="tech-stack-list">
+            <p class="text-grey"><b>Made with: </b></p>
+            <li><span class="iconify" data-icon="logos:docusaurus" data-inline="false"></span></li>
+            <li><span class="iconify" data-icon="vscode-icons:file-type-typescript" data-inline="false"></span></li>
+            <li><span class="iconify" data-icon="logos:aws" data-inline="false"></span></li>
+          </ul>
+          <p>
+            Polykey.com serves as a showcase for Matrix AI's Polykey Secret Management Software, featuring a detailed product demo site.
+            Standout elements include an interactive video with a specially coded button, offering a captivating user experience.
+            The site also provides a personalized API (polykey.com/api) showcasing Polykey's social info.
+            Notably, a sophisticated dashboard lists active Polykey nodes, highlighting the software's advanced features in secret management.
+          </p>
+          <div class="project-links">
+            <a href="https://polykey.com/" class="btn-blue btn-small" target="_blank"> <i class="fas fa-external-link-alt"></i> Live</a>
+          </div>
+        </div>
+      </div>
+      <div class="project-row" data-aos="fade-up">
+        <div class="project-left">
+          <img src="dist/img/js-rpc.png" alt="" />
+        </div>
+        <div class="project-right">
+          <h3>js-rpc - Stream-based JSON RPC for JavaScript/TypeScript Applications</h3>
+          <ul class="tech-stack-list">
+            <p class="text-grey"><b>Made with: </b></p>
+            <li><span class="iconify" data-icon="vscode-icons:file-type-typescript" data-inline="false"></span></li>
+          </ul>
+          <p>
+            js-rpc is an advanced library tailored for JavaScript and TypeScript applications, pioneering in the realm of stream-based RPC calls. Unlike traditional RPC libraries, js-rpc offers extended capabilities
+            including unary, duplex, server-stream, client-stream, and raw calls. This feature set allows for versatile and highly performative data exchange, rendering js-rpc an indispensable tool for complex, real-time
+            applications.
+          </p>
+          <div class="project-links">
+            <a href="https://github.com/MatrixAI/js-rpc/" class="btn-blue-outline btn-small mx-1" target="_blank"> <i class="fab fa-github"></i> Code</a>
+          </div>
+        </div>
+      </div>
+      <div class="project-row" data-aos="fade-up">
+        <div class="project-left">
+          <img src="dist/img/chat.png" alt="" />
+        </div>
+        <div class="project-right">
+          <h3>secureChatApp - A New Standard in Secure Communication</h3>
+          <ul class="tech-stack-list">
+            <p class="text-grey"><b>Made with: </b></p>
+            <li><span class="iconify" data-icon="logos:python" data-inline="false"></span></li>
+            <li><span class="iconify" data-icon="vscode-icons:file-type-html" data-inline="false"></span></li>
+            <li><span class="iconify" data-icon="vscode-icons:file-type-css" data-inline="false"></span></li>
+          </ul>
+          <p>
+            The secureChatApp is a groundbreaking web application that brings unparalleled security to your conversations. It leverages advanced asymmetric encryption techniques to secure messages, ensuring utmost privacy
+            and confidentiality. The secureChatApp is built using Python for backend logic, HTML5 for structure, and CSS for styling. The server-side logic is handled by Flask, a lightweight and robust web framework for
+            Python. Data security is further enhanced with itsdangerous, a Python library to deal with JSON Web Signatures and encryption. Cachelib is used for caching functionalities, while Flask-Session manages users'
+            sessions. Blinker provides a fast dispatching system that allows your application to send signals and respond to them. The application follows stringent cybersecurity best practices, which, combined with the
+            power of these Python libraries, makes secureChatApp a fortress against various security threats.
+          </p>
+          <div class="project-links">
+            <a href="https://chat.adityav.au/" class="btn-blue btn-small" target="_blank"> <i class="fas fa-external-link-alt"></i> Live</a>
+            <a href="https://github.com/addievo/secureChatApp" class="btn-blue-outline btn-small mx-1" target="_blank"> <i class="fab fa-github"></i> Code</a>
+          </div>
+        </div>
+      </div>
+      <div class="project-row" data-aos="fade-up">
+        <div class="project-left">
+          <img src="dist/img/phish.png" alt="" />
+        </div>
+        <div class="project-right">
+          <h3>Phishing Detection System</h3>
+          <ul class="tech-stack-list">
+            <p class="text-grey"><b>Made with: </b></p>
+            <li><span class="iconify" data-icon="logos:python" data-inline="false"></span></li>
+            <li><span class="iconify" data-icon="vscode-icons:file-type-html" data-inline="false"></span></li>
+            <li><span class="iconify" data-icon="vscode-icons:file-type-css" data-inline="false"></span></li>
+          </ul>
+          <p>
+            The Phishing Detection System is a cutting-edge web application that uses machine learning to identify phishing websites. This application harnesses the power of Python, Flask, and machine learning techniques to
+            provide real-time phishing detection. This system allows users to enter a URL and, using a trained model, the system will evaluate the URL and return a verdict whether it's a legitimate or a phishing site. The
+            evaluation is based on various features extracted from the URL, such as the presence of IP addresses, URL length, and others. The Phishing Detection System is an excellent tool for enhancing online security and
+            protecting against phishing threats.
+          </p>
+          <div class="project-links">
+            <a href="https://phishing.adityav.au/" class="btn-blue btn-small" target="_blank"> <i class="fas fa-external-link-alt"></i> Live</a>
+            <a href="https://github.com/addievo/phishingDetection" class="btn-blue-outline btn-small mx-1" target="_blank"> <i class="fab fa-github"></i> Code</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-row" data-aos="fade-up">
+        <div class="project-left">
+          <img src="dist/img/ids.png" alt="" />
+        </div>
+        <div class="project-right">
+          <h3>Intrusion Detection System</h3>
+          <ul class="tech-stack-list">
+            <p class="text-grey"><b>Made with: </b></p>
+            <li><span class="iconify" data-icon="logos:python" data-inline="false"></span></li>
+          </ul>
+          <p>This project implements an Intrusion Detection System (IDS) using machine learning techniques. It aims to detect and classify network intrusions or anomalous activities in a computer network.</p>
+          <div class="project-links">
+            <a href="https://github.com/addievo/intrusionDetection" class="btn-blue-outline btn-small mx-1" target="_blank"> <i class="fab fa-github"></i> Code</a>
+          </div>
+        </div>
+      </div>
+      <div class="project-row" data-aos="fade-up">
+        <div class="project-left">
+          <img src="dist/img/lms.png" alt="" />
+        </div>
+        <div class="project-right">
+          <h3>FlyDreamAir Loyalty Management System</h3>
+          <ul class="tech-stack-list">
+            <p class="text-grey"><b>Made with: </b></p>
+            <li><span class="iconify" data-icon="vscode-icons:file-type-html" data-inline="false"></span></li>
+            <li><span class="iconify" data-icon="vscode-icons:file-type-css" data-inline="false"></span></li>
+            <li><span class="iconify" data-icon="logos:javascript" data-inline="false"></span></li>
+            <li><span class="iconify" data-icon="logos:nodejs-icon" data-inline="false"></span></li>
+            <li><span class="iconify" data-icon="logos:php" data-inline="false"></span></li>
+          </ul>
+          <p>
+            A group project for University. Coded by - <a href="https://www.linkedin.com/in/caitlin-o-flynn-526951228/" target="_blank" style="color: blue;">Caitlin O'Flynn. </a>The FlyDreamAir Loyalty Management System
+            (LMS) is designed to effectively manage FlyDreamAir's customer loyalty programs. It includes features such as frequent flyer points, rewards, and various ways to earn and redeem points, as well as status
+            upgrades. The LMS aims to provide customers with a seamless experience, strengthen customer relationships, and enhance customer retention and revenue.
+          </p>
+          <div class="project-links">
+            <a href="https://lms.adityav.au" class="btn-blue btn-small" target="_blank"> <i class="fas fa-external-link-alt"></i> Live</a>
+          </div>
+        </div>
+      </div>
+      <div class="project-row" data-aos="fade-up">
+        <div class="project-left">
+          <img src="dist/img/portfolio.png" alt="" />
+        </div>
+        <div class="project-right">
+          <h3>Portfolio Website</h3>
+          <ul class="tech-stack-list">
+            <p class="text-grey"><b>Made with: </b></p>
+            <li><span class="iconify" data-icon="vscode-icons:file-type-html" data-inline="false"></span></li>
+            <li><span class="iconify" data-icon="vscode-icons:file-type-css" data-inline="false"></span></li>
+            <li><span class="iconify" data-icon="logos:sass" data-inline="false"></span></li>
+            <li><span class="iconify" data-icon="logos:javascript" data-inline="false"></span></li>
+          </ul>
+          <p>
+            The Portfolio Website showcases my personal projects, skills, and experiences. It is built using SCSS for styling, HTML5 for structure, CSS for additional styling, and JavaScript for interactivity. The website
+            aims to highlight my work and provide an overview of my capabilities.
+          </p>
+          <div class="project-links">
+            <a href="https://adityav.au" class="btn-blue btn-small" target="_blank"> <i class="fas fa-external-link-alt"></i> Live</a>
+            <a href="https://github.com/addievo/addievo.github.io" class="btn-blue-outline btn-small mx-1" target="_blank"> <i class="fab fa-github"></i> Code</a>
+          </div>
+        </div>
+      </div>
+      <div class="project-row" data-aos="fade-up">
+        <div class="project-left">
+          <img src="dist/img/javanoun.png" alt="" />
+        </div>
+        <div class="project-right">
+          <h3>Noun Extractor</h3>
+          <ul class="tech-stack-list">
+            <p class="text-grey"><b>Made with: </b></p>
+            <li><span class="iconify" data-icon="logos:java" data-inline="false"></span></li>
+          </ul>
+          <p>
+            This Java program is designed to extract all the nouns from a given string. It uses the OpenNLP library to perform POS (Part of Speech) tagging. It then filters out all the nouns (both proper and common) from the
+            tagged words. It also ensures that the output is in lowercase and duplicates are removed.
+          </p>
+          <div class="project-links">
+            <a href="https://github.com/addievo/nounChecker/" class="btn-blue-outline btn-small mx-1" target="_blank"> <i class="fab fa-github"></i> Code</a>
+          </div>
+        </div>
+      </div>
+      <div class="project-row" data-aos="fade-up">
+        <div class="project-left">
+          <img src="dist/img/todo.png" alt="" />
+        </div>
+        <div class="project-right">
+          <h3>Todo List - Now saves lists and works on phone too!</h3>
+          <ul class="tech-stack-list">
+            <p class="text-grey"><b>Made with: </b></p>
+            <li><span class="iconify" data-icon="vscode-icons:file-type-html" data-inline="false"></span></li>
+            <li><span class="iconify" data-icon="vscode-icons:file-type-css" data-inline="false"></span></li>
+            <li><span class="iconify" data-icon="logos:javascript" data-inline="false"></span></li>
+          </ul>
+          <p>
+            The Simple Todo List is a web application that helps manage your tasks. It allows users to add new tasks, mark tasks as completed, clear completed tasks, and view the number of uncompleted tasks. It is built
+            using HTML5 for structure, CSS for styling, and JavaScript for interactivity.
+          </p>
+          <div class="project-links">
+            <a href="https://todo.adityav.au/" class="btn-blue btn-small" target="_blank"> <i class="fas fa-external-link-alt"></i> Live</a>
+            <a href="https://github.com/addievo/simpleToDo" class="btn-blue-outline btn-small mx-1" target="_blank"> <i class="fab fa-github"></i> Code</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="skills">
+    <div class="seperator-skew-top">
+      <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
+      </svg>
+    </div>
+    <div class="container" data-aos="fade-in">
+      <h2 class="text-white">Technical <span class="text-blue main-font">Skills</span></h2>
+
+      <ul class="skills-icons">
+        <li><span class="iconify" data-icon="logos:aws" data-inline="false" data-width="90px" data-height="90px"></span><span>AWS</span></li>
+        <li><span class="iconify" data-icon="logos:typescript" data-inline="false" data-width="90px" data-height="90px"></span><span>Typescript</span></li>
+        <li><span class="iconify" data-icon="logos:javascript" data-inline="false" data-width="90px" data-height="90px"></span><span>JavaScript</span></li>
+        <li><span class="iconify" data-icon="logos:nodejs-icon" data-inline="false" data-width="90px" data-height="90px"></span><span>Node.js</span></li>
+        <li><span class="iconify" data-icon="logos:python" data-inline="false" data-width="90px" data-height="90px"></span><span>Python</span></li>
+        <li><span class="iconify" data-icon="logos:java" data-inline="false" data-width="90px" data-height="90px"></span><span>Java</span></li>
+        <li><span class="iconify" data-icon="vscode-icons:file-type-cpp2" data-inline="false" data-width="90px" data-height="90px"></span><span class="text-center">C++</span></li>
+        <li><span class="iconify" data-icon="vscode-icons:file-type-html" data-inline="false" data-width="90px" data-height="90px"></span><span>HTML</span></li>
+        <li><span class="iconify" data-icon="vscode-icons:file-type-css" data-inline="false" data-width="90px" data-height="90px"></span><span>CSS</span></li>
+        <li><span class="iconify" data-icon="vscode-icons:file-type-scss2" data-inline="false" data-width="90px" data-height="90px"></span><span>SCSS</span></li>
+        <li><span class="iconify" data-icon="logos:git-icon" data-inline="false" data-width="90px" data-height="90px"></span><span>Git</span></li>
+        <li><span class="iconify" data-icon="logos:mysql" data-inline="false" data-width="90px" data-height="90px"></span><span>MySQL</span></li>
+        <li><span class="iconify" data-icon="flat-color-icons:linux" data-inline="false" data-width="90px" data-height="90px"></span><span>Linux</span></li>
+        <li><span class="iconify aws-logo" data-icon="logos:oracle" data-inline="false" data-width="90px" data-height="90px"></span><span class="text-center">Oracle</span></li>
+        <li><span class="iconify" data-icon="simple-icons:rstudio" data-inline="false" data-width="90px" data-height="90px"></span><span class="text-center">RStudio</span></li>
+      </ul>
+    </div>
+
+    <div class="seperator-skew-bottom">
+      <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
+      </svg>
+    </div>
+  </section>
+
+
+  <!-- Work -->
+  <section id="work" class="education">
+    <div class="container">
+      <h2 class="main-font" data-aos="fade-in">My <span class="text-blue main-font">Work Experience</span></h2>
+
+      <div class="education-card" data-aos="zoom-in">
+        <div class="education-card-column">
+          <div class="card-column-image">
+            <img src="dist/img/matrixAI.png" alt="" />
+          </div>
+
+          <div class="card-column-large">
+            <h3 class="education-year">July 2023 - January 2024</h3>
+            <h3>Matrix AI</h3>
+            <h3>Junior Software Developer</h3>
+            <p></p>
+            <ul>
+              <li>Development of <a href="https://github.com/MatrixAI/Polykey" class="blue-link-underline" target="_blank">Polykey's</a> infrastructure, mainly focusing on development of the <a href="https://github.com/MatrixAI/js-rpc" class="blue-link-underline" target="_blank">JS-RPC</a> library for low-level communication.   </li>
+              <li>Major design overhaul and devlopement of <a href="https://polykey.com/" class="blue-link-underline" target="_blank">Polykey.com</a> and focus on marketing of Polykey for it's initial launch. </li>
+              <li>Maintained a focus on continuous learning and adaptation to emerging technologies, ensuring alignment with
+                industry best practices such as focused commit messages and linting practices.</li>
+              <li>Produced the <a href="https://vimeo.com/884649667" class="blue-link-underline" target="_blank">Marketing Video</a> for Polykey.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="education-card" data-aos="zoom-in">
+        <div class="education-card-column">
+          <div class="card-column-image">
+            <img src="dist/img/uow.png" alt="" />
+          </div>
+
+          <div class="card-column-large">
+            <h3 class="education-year">Jan 2023 - July 2024</h3>
+            <h3>University of Wollongong</h3>
+            <h3>CSIT Lab Demonstrator</h3>
+            <p></p>
+            <ul>
+              <li>Guided students in CSIT115-Database labs, meticulously preparing assignments and demonstrating the intricacies of database concepts.</li>
+              <li>Offered support to students by fostering effective study habits and sharing valuable exam strategies to enhance their academic performance.</li>
+              <li>Provided personalized assistance with homework, leveraging specific curriculum materials to ensure a comprehensive understanding of course content.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section id="education" class="education">
+    <div class="container">
+      <h2 class="main-font" data-aos="fade-in">My <span class="text-blue main-font">Education</span></h2>
+
+      <div class="education-card" data-aos="zoom-in">
+        <div class="education-card-column">
+          <div class="card-column-image">
+            <img src="dist/img/uow.png" alt="" />
+          </div>
+
+          <div class="card-column-large">
+            <h3 class="education-year">2024</h3>
+            <h3>University of Wollongong - Bachelor of Computer Science (Hons.)</h3>
+            <h3>Current GPA 6.9/7</h3>
+            <h3>Current WAM 88</h3>
+            <p></p>
+            <ul>
+              <li>Major 1 - Cybersecurity</li>
+              <li>Major 2 - Artificial Intelligence and Big Data</li>
+              <li><b>Dean's Merit List</b> - Faculty of Engineering and Information Science BCompSci</li>
+              <li>University of Wollongong <b>Excellence Scholarship</b></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2 class="section-title main-font" data-aos="fade-in">Contact <span class="text-blue main-font">Me</span></h2>
+      <div class="card-container">
+        <div class="card" data-aos="fade-in">
+          <i class="fas fa-envelope"></i>
+          <h3>Email</h3>
+          <p><a href="mailto:hello@adityav.au" class="text-blue">hello@adityav.au</a></p>
+        </div>
+        <div class="card" data-aos="fade-in" data-aos-delay="100">
+          <i class="fab fa-github"></i>
+          <h3>GitHub</h3>
+          <a href="https://github.com/addievo" class="text-blue" target="_blank">addievo</a>
+        </div>
+        <div class="card" data-aos="fade-in" data-aos-delay="200">
+          <i class="fab fa-linkedin"></i>
+          <h3>LinkedIn</h3>
+          <a href="https://www.linkedin.com/in/addievo/" class="text-blue" target="_blank">addievo</a>
+        </div>
+      </div>
+
+      <form id="contact-form" data-aos="zoom-in" data-aos-delay="300" action="https://formspree.io/f/mqkvkgrn" method="POST">
+        <h2 class="main-font">Send <span class="text-blue main-font">Email</span></h2>
+
+        <div class="form-group">
+          <input type="text" id="name" name="name" placeholder="Your Name" required />
+        </div>
+
+        <div class="form-group">
+          <input type="email" id="email" name="email" placeholder="Your Email" required />
+        </div>
+
+        <div class="form-group">
+          <textarea name="message" id="message" rows="7" placeholder="Your Message" required></textarea>
+        </div>
+
+        <button type="submit" class="btn-email">
+          <span class="default">Send :)</span>
+          <span class="success">
+                              <svg viewBox="0 0 16 16">
+                                  <polyline points="3.75 9 7 12 13 5"></polyline>
+                              </svg>
+                              Sent
+                          </span>
+          <svg class="trails" viewBox="0 0 33 64">
+            <path d="M26,4 C28,13.3333333 29,22.6666667 29,32 C29,41.3333333 28,50.6666667 26,60"></path>
+            <path d="M6,4 C8,13.3333333 9,22.6666667 9,32 C9,41.3333333 8,50.6666667 6,60"></path>
+          </svg>
+          <div class="plane">
+            <div class="left"></div>
+            <div class="right"></div>
+          </div>
+        </button>
+        <div id="status"></div>
+      </form>
+    </div>
+  </section>
+
+  <footer id="footer" class="footer">
+    <div class="container">
+      <div class="footer-flex">
+        <img src="dist/img/logo.png" alt="logo" id="logo-footer" />
+
+        <div class="footer-icon-links">
+          <a href="https://github.com/addievo" target="_blank"><i class="fab fa-github fa-2x"></i></a>
+          <a href="https://www.linkedin.com/in/addievo/" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a>
+          <a href="mailto:hello@adityav.au"><i class="fas fa-envelope fa-2x"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+    <!-- Back to top button in corner -->
+    <a id="backToTopBtn" class="btn-blue">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+
+    <!-- Particles.js for hero section -->
+    <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"
+            integrity="sha512-Kef5sc7gfTacR7TZKelcrRs15ipf7+t+n7Zh6mKNJbmW+/RRdCW9nwfLn4YX0s2nO6Kv5Y2ChqgIakaC6PW09A=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+    ></script>
+
+    <!-- GSAP animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+
+    <script>
+      particlesJS.load("particles-js", "dist/particles.json", function () {
+        console.log("particles.json loaded...");
+      });
+
+      particlesJS.load("skills", "dist/particles.json", function () {
+        console.log("particles.json loaded...");
+      });
+
+      particlesJS.load("footer", "dist/particles.json", function () {
+        console.log("particles.json loaded...");
+      });
+
+      particlesJS.load();
+    </script>
+
+    <script defer src="dist/js/app.js"></script>
+
+    <!-- AOS Animations -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>

@@ -668,6 +668,9 @@ header .seperator-skew svg .fill-white {
   .img24{
     display: none;
   }
+  .img25{
+    scale: 90%
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -688,6 +691,9 @@ header .seperator-skew svg .fill-white {
   }
   .img24{
     display: none;
+  }
+  .img25{
+    scale: 90%
   }
 }
 
@@ -715,6 +721,9 @@ header .seperator-skew svg .fill-white {
   }
   .img24{
     display: none;
+  }
+  .img25{
+    scale: 90%
   }
 }
 

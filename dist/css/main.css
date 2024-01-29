@@ -677,6 +677,18 @@ header .seperator-skew svg .fill-white {
   header nav .nav-container #logo img {
     width: 200px;
   }
+  .img21{
+    display: none;
+  }
+  .img22{
+    display: none;
+  }
+  .img23{
+    display: none;
+  }
+  .img24{
+    display: none;
+  }
 }
 
 @media screen and (max-width: 500px) {
@@ -691,6 +703,18 @@ header .seperator-skew svg .fill-white {
   }
   header .hero p {
     width: 100%;
+  }
+  .img21{
+    display: none;
+  }
+  .img22{
+    display: none;
+  }
+  .img23{
+    display: none;
+  }
+  .img24{
+    display: none;
   }
 }
 

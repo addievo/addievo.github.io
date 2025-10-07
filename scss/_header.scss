@@ -3,10 +3,12 @@ header {
   background-size: cover;
   min-height: 80vh;
   position: relative;
+  overflow: hidden;
 
   #particles-js {
     height: 80vh;
     position: relative;
+    overflow: hidden;
 
     // Particles.js
     canvas {
@@ -15,7 +17,7 @@ header {
       left: 0;
       bottom: 0;
       width: 100%;
-      height: 75%;
+      height: 100%;
     }
   }
 

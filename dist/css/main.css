@@ -366,11 +366,13 @@ header {
   background-size: cover;
   min-height: 80vh;
   position: relative;
+  overflow: hidden;
 }
 
 header #particles-js {
   height: 80vh;
   position: relative;
+  overflow: hidden;
 }
 
 #logo2{

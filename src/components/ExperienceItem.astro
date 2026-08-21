@@ -2,7 +2,7 @@
 interface Props {
   client: string;
   role: string;
-  period: string;
+  period?: string;
   outcome: string;
   region?: string;
 }
@@ -15,7 +15,7 @@ const { client, role, period, outcome, region } = Astro.props;
       {client}{region && <span class="text-fog-muted font-normal text-sm"> · {region}</span>}
     </h3>
     <p class="text-xs text-fog-muted mt-1.5">{role}</p>
-    <p class="font-mono text-[11px] text-fog-muted/80 mt-1">{period}</p>
+    {period && <p class="font-mono text-[11px] text-fog-muted/80 mt-1">{period}</p>}
   </div>
   <p class="text-fog/85 text-sm leading-relaxed">{outcome}</p>
 </li>

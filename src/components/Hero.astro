@@ -1,5 +1,4 @@
 ---
-import Header from './Header.astro';
 ---
 
 <header id="hero" class="relative bg-ink-900 overflow-hidden">
@@ -12,13 +11,8 @@ import Header from './Header.astro';
   <!-- Soft accent halo above the headline -->
   <div class="absolute inset-x-0 top-0 h-[80vh] halo-blue z-[1] pointer-events-none" aria-hidden="true"></div>
 
-  <!-- Nav (transparent overlay, parallax logo) -->
-  <div class="relative z-20">
-    <Header overlay withParallaxLogo />
-  </div>
-
   <!-- Hero copy, centered -->
-  <div class="relative z-10 container-x flex flex-col items-center text-center pt-40 md:pt-48 pb-40 md:pb-48 min-h-[80vh]">
+  <div class="relative z-10 container-x flex flex-col items-center text-center pt-10 md:pt-16 pb-40 md:pb-48 min-h-[80vh]">
     <p class="eyebrow mb-5 animate-on-scroll">
       <span class="inline-block w-1.5 h-1.5 rounded-full bg-accent mr-2 animate-pulse"></span>
       Applied AI Engineer · Melbourne

@@ -15,6 +15,9 @@ export default defineConfig({
     }),
   ],
   adapter: cloudflare(),
+  redirects: {
+    '/booking': { status: 302, destination: 'https://latticelabs.au/booking' },
+  },
   build: {
     inlineStylesheets: 'auto',
   },

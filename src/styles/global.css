@@ -266,14 +266,14 @@
 #logo {
   position: relative;
   margin: auto 0;
-  width: 170px;
+  width: 128px;
   aspect-ratio: 1000 / 556;
   user-select: none;
   z-index: 10;
 }
 
 @media (min-width: 768px) {
-  #logo { width: 220px; }
+  #logo { width: 180px; }
 }
 
 #logo > img {

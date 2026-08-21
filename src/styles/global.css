@@ -127,6 +127,8 @@
     @apply relative bg-ink-800/60 border border-white/[0.06] rounded-md p-6 transition-all duration-300 overflow-hidden;
   }
   .card-hover { cursor: pointer; }
+  /* Same spotlight, but the card is a container with its own links inside */
+  .card-flat { cursor: default; }
   .card-hover::before {
     content: '';
     @apply absolute inset-0 opacity-0 transition-opacity duration-300 pointer-events-none;

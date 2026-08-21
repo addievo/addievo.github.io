@@ -1,0 +1,89 @@
+---
+import type { Project } from '../data/projects';
+
+interface Props {
+  project: Project;
+  featured?: boolean;
+}
+const { project, featured = false } = Astro.props;
+const { slug, name, tagline, blurb, repo, language, stars, tags, link } = project;
+
+const starLabel = stars === 1 ? '1 star' : `${stars} stars`;
+const meta = repo ? (stars > 0 ? `${language} · ${starLabel}` : language) : `${language} · no public repo`;
+const repoLabel = repo ? repo.replace('https://github.com/', '') : null;
+---
+
+<article
+  id={`p-${slug}`}
+  class:list={[
+    'card card-hover card-flat group flex flex-col h-full animate-on-scroll',
+    featured && 'md:p-8',
+  ]}
+  data-mouse-track
+>
+  <div class="flex items-center justify-between gap-3 mb-4">
+    <span class="font-mono text-xs text-fog-muted">{meta}</span>
+    {featured && <span class="tag">Pinned</span>}
+  </div>
+
+  <h3
+    class:list={[
+      'font-extrabold tracking-snug text-white leading-tight mb-2',
+      featured ? 'text-2xl md:text-3xl' : 'text-xl',
+    ]}
+  >
+    {name}
+  </h3>
+
+  <p class="text-fog/85 text-sm leading-snug mb-3">{tagline}</p>
+  <p class="text-fog/65 text-sm leading-relaxed mb-5 flex-1">{blurb}</p>
+
+  <ul class="flex flex-wrap gap-1.5 mb-5">
+    {tags.map((t) => <li class="tag">{t}</li>)}
+  </ul>
+
+  <div class="flex flex-wrap items-center gap-x-5 gap-y-2 mt-auto">
+    {
+      repo && (
+        <a
+          href={repo}
+          target="_blank"
+          rel="noopener"
+          class="inline-flex items-center gap-1.5 text-xs font-mono text-fog-muted hover:text-accent transition-colors"
+        >
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+          </svg>
+          {repoLabel}
+        </a>
+      )
+    }
+    {
+      link && (
+        <a
+          href={link}
+          class="inline-flex items-center gap-1.5 text-sm font-medium text-accent hover:gap-3 transition-all"
+        >
+          Read the build
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
+          </svg>
+        </a>
+      )
+    }
+  </div>
+</article>
+
+<script>
+  // Mouse-tracked spotlight. Idempotent: CaseCard binds the same attribute.
+  document.querySelectorAll('[data-mouse-track]').forEach((card) => {
+    const el = card as HTMLElement;
+    if (el.dataset.mouseBound === '1') return;
+    el.dataset.mouseBound = '1';
+    el.addEventListener('mousemove', (e) => {
+      const r = el.getBoundingClientRect();
+      el.style.setProperty('--mx', `${(e as MouseEvent).clientX - r.left}px`);
+      el.style.setProperty('--my', `${(e as MouseEvent).clientY - r.top}px`);
+    });
+  });
+</script>

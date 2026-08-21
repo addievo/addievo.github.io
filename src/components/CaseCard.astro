@@ -72,12 +72,15 @@ const indexLabel = String(index + 1).padStart(2, '0');
 </a>
 
 <script>
-  // Mouse-tracked spotlight on cards
+  // Mouse-tracked spotlight on cards. Idempotent: ProjectCard binds the same attribute.
   document.querySelectorAll('[data-mouse-track]').forEach((card) => {
-    card.addEventListener('mousemove', (e) => {
-      const r = (card as HTMLElement).getBoundingClientRect();
-      (card as HTMLElement).style.setProperty('--mx', `${e.clientX - r.left}px`);
-      (card as HTMLElement).style.setProperty('--my', `${e.clientY - r.top}px`);
+    const el = card as HTMLElement;
+    if (el.dataset.mouseBound === '1') return;
+    el.dataset.mouseBound = '1';
+    el.addEventListener('mousemove', (e) => {
+      const r = el.getBoundingClientRect();
+      el.style.setProperty('--mx', `${(e as MouseEvent).clientX - r.left}px`);
+      el.style.setProperty('--my', `${(e as MouseEvent).clientY - r.top}px`);
     });
   });
 </script>

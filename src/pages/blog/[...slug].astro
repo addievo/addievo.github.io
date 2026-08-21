@@ -1,0 +1,63 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { render, type CollectionEntry } from 'astro:content';
+import { getPosts, formatDate, readingTime } from '../../lib/blog';
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+
+type Props = { post: CollectionEntry<'blog'> };
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<BaseLayout title={`${post.data.title} | Aditya Varma`} description={post.data.description}>
+  <Header />
+
+  <article class="pt-12 md:pt-20 pb-24">
+    <header class="container-x max-w-3xl mx-auto animate-on-scroll">
+      <a href="/blog" class="text-xs font-mono text-fog-muted hover:text-accent transition-colors">← Blog</a>
+      <div class="flex flex-wrap items-center gap-x-3 gap-y-1 mt-6 mb-3 font-mono text-xs text-fog-muted">
+        <time datetime={post.data.date.toISOString()}>{formatDate(post.data.date)}</time>
+        <span aria-hidden="true">·</span>
+        <span>{readingTime(post.body)}</span>
+        {post.data.draft && <span class="tag">Draft</span>}
+      </div>
+      <h1 class="text-3xl md:text-5xl font-extrabold tracking-snug text-white leading-tight">
+        {post.data.title}
+      </h1>
+      <p class="mt-5 text-lg text-fog/85 leading-relaxed">{post.data.description}</p>
+      {
+        post.data.tags.length > 0 && (
+          <ul class="flex flex-wrap gap-1.5 mt-6">
+            {post.data.tags.map((t) => (
+              <li class="tag">{t}</li>
+            ))}
+          </ul>
+        )
+      }
+    </header>
+
+    <div class="container-x mt-12 max-w-3xl mx-auto case-content">
+      <Content />
+    </div>
+  </article>
+
+  <section class="border-t border-white/5 bg-ink-950 py-16">
+    <div class="container-x flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+      <div>
+        <p class="text-xs uppercase tracking-[0.3em] text-fog-muted mb-2">Keep reading</p>
+        <a href="/blog" class="font-display text-2xl md:text-3xl text-white hover:text-accent transition-colors">
+          All posts →
+        </a>
+      </div>
+      <a href="/#projects" class="text-sm text-fog-muted hover:text-white transition-colors">Projects ↑</a>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

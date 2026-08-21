@@ -1,0 +1,69 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { getPosts, formatDate, readingTime } from '../../lib/blog';
+
+const posts = await getPosts();
+---
+
+<BaseLayout
+  title="Blog | Aditya Varma"
+  description="Build logs and notes from Aditya Varma: hardware detours, agent plumbing, and things I learned the hard way."
+>
+  <Header />
+
+  <section class="pt-16 md:pt-24 pb-12">
+    <div class="container-x max-w-3xl">
+      <p class="eyebrow mb-3">Blog</p>
+      <h1 class="section-title">Build logs and loose notes.</h1>
+      <p class="text-fog/80 mt-4 leading-relaxed text-base md:text-lg">
+        Whatever I happened to be soldering, scripting, or arguing with that week. Written for me first, published in case it saves you an afternoon.
+      </p>
+    </div>
+  </section>
+
+  <section class="pb-24 md:pb-32">
+    <div class="container-x max-w-3xl">
+      {
+        posts.length === 0 ? (
+          <div class="card">
+            <p class="text-fog/85">Nothing published yet. First post is on its way.</p>
+            <p class="text-sm text-fog-muted mt-3">
+              In the meantime, the code is at
+              <a href="https://github.com/addievo" target="_blank" rel="noopener" class="link-underline">github.com/addievo</a>.
+            </p>
+          </div>
+        ) : (
+          <ul class="divide-y divide-white/[0.06] border-t border-white/[0.06]">
+            {posts.map((post) => (
+              <li class="py-7 animate-on-scroll">
+                <div class="flex flex-wrap items-center gap-x-3 gap-y-1 mb-2 font-mono text-xs text-fog-muted">
+                  <time datetime={post.data.date.toISOString()}>{formatDate(post.data.date)}</time>
+                  <span aria-hidden="true">·</span>
+                  <span>{readingTime(post.body)}</span>
+                  {post.data.draft && <span class="tag">Draft</span>}
+                </div>
+                <h2 class="text-xl md:text-2xl font-extrabold tracking-snug leading-tight">
+                  <a href={`/blog/${post.id}`} class="text-white hover:text-accent transition-colors">
+                    {post.data.title}
+                  </a>
+                </h2>
+                <p class="text-fog/75 text-sm leading-relaxed mt-2">{post.data.description}</p>
+                {post.data.tags.length > 0 && (
+                  <ul class="flex flex-wrap gap-1.5 mt-4">
+                    {post.data.tags.map((t) => (
+                      <li class="tag">{t}</li>
+                    ))}
+                  </ul>
+                )}
+              </li>
+            ))}
+          </ul>
+        )
+      }
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

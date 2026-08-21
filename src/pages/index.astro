@@ -2,6 +2,8 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import CaseCard from '../components/CaseCard.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { featuredProjects, otherProjects } from '../data/projects';
 import ExperienceItem from '../components/ExperienceItem.astro';
 import Footer from '../components/Footer.astro';
 ---
@@ -16,12 +18,12 @@ import Footer from '../components/Footer.astro';
   <section id="work" class="bg-ink-950 py-24 md:py-32 border-t border-white/[0.04]">
     <div class="container-x">
       <div class="mb-14 max-w-2xl">
-        <p class="eyebrow mb-3">Selected work</p>
-        <h2 class="section-title">Three production AI systems.</h2>
-        <p class="section-sub mx-0">Each shipped under Lattice Labs. Click any card for the full writeup, architecture, and links to code.</p>
+        <p class="eyebrow mb-3">Deep dives</p>
+        <h2 class="section-title">Two builds I wrote up properly.</h2>
+        <p class="section-sub mx-0">The architecture, the decisions, and what I would do differently. Everything else I have made is in the grid below.</p>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-5 md:gap-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-6">
         <CaseCard
           slug="logan"
           title="Logan"
@@ -33,26 +35,44 @@ import Footer from '../components/Footer.astro';
           index={0}
         />
         <CaseCard
-          slug="colorgirl"
-          title="ColorGirl"
-          tagline="AI product-catalogue scraper that converts supplier e-commerce sites into WooCommerce-ready imports. Multi-model routing across Opus/Sonnet/Haiku, Temporal-orchestrated 9-phase pipeline with HITL approvals."
-          category="AI Pipelines · Commerce"
-          status="beta"
-          stack={['TypeScript', 'Node.js', 'Temporal', 'Ink/React', 'Playwright']}
-          metrics={['9-phase workflow', 'Multi-model routing', '~200 products/min']}
-          index={1}
-        />
-        <CaseCard
           slug="vae-gnn"
           title="EarlyBuild · VAE-GNN"
-          tagline="Neural building generator for German architectural-AI client EarlyBuild GmbH. VAE-GNN inference engine plus NSGA-III multi-objective optimisation across DIN 276 cost, energy, embodied carbon and floor area."
+          tagline="Neural building generator: a VAE-GNN inference engine plus NSGA-III multi-objective optimisation across DIN 276 cost, energy, embodied carbon and floor area."
           category="Applied ML · Architecture"
           status="capstone"
           stack={['PyTorch', 'GATConv', 'pymoo', 'Flask', 'React 19', 'Three.js']}
           metrics={['136K params', '1.1M samples', 'DIN 276 multi-obj']}
-          index={2}
+          index={1}
         />
       </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="py-24 md:py-32 border-t border-white/[0.04]">
+    <div class="container-x">
+      <div class="mb-14 max-w-2xl">
+        <p class="eyebrow mb-3">Side projects</p>
+        <h2 class="section-title">Things I've made.</h2>
+        <p class="section-sub mx-0">
+          Nights, weekends, and the occasional 2am idea that would not let go. Firmware on a $15 desk clock, a Windows tray that refuses to stay on one monitor, homelab plumbing, and a few classifiers from my undergrad years. Nearly all of it is on GitHub.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-5 md:gap-6 mb-6">
+        {featuredProjects.map((project) => <ProjectCard project={project} featured />)}
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+        {otherProjects.map((project) => <ProjectCard project={project} />)}
+      </div>
+
+      <p class="mt-10 text-sm text-fog-muted">
+        More of the same at
+        <a href="https://github.com/addievo" target="_blank" rel="noopener" class="link-underline">github.com/addievo</a>
+        and
+        <a href="https://github.com/latticelabs-au" target="_blank" rel="noopener" class="link-underline">github.com/latticelabs-au</a>.
+      </p>
     </div>
   </section>
 
@@ -146,7 +166,7 @@ import Footer from '../components/Footer.astro';
           I'm an applied AI and full-stack engineer. I run <a href="https://latticelabs.au" target="_blank" rel="noopener" class="link-underline">Lattice Labs Pty Ltd</a>, a Melbourne consultancy that ships compliance platforms, agentic AI systems, and multi-tenant SaaS for AU and international clients.
         </p>
         <p>
-          The bulk of my work right now is in production agentic systems on the <strong class="text-white">Anthropic Claude Agent SDK + Temporal</strong>: durable orchestration, multi-model routing across Opus/Sonnet/Haiku, MCP servers, and structured tool-use over real corpora. <a href="/work/logan" class="link-underline">Logan</a> is the open-source flagship of that work; <a href="/work/colorgirl" class="link-underline">ColorGirl</a> is the e-commerce sibling.
+          The bulk of my work right now is in production agentic systems on the <strong class="text-white">Anthropic Claude Agent SDK + Temporal</strong>: durable orchestration, multi-model routing across Opus/Sonnet/Haiku, MCP servers, and structured tool-use over real corpora. <a href="/work/logan" class="link-underline">Logan</a> is the open-source flagship of that work; <a href="https://github.com/latticelabs-au/colorgirl" target="_blank" rel="noopener" class="link-underline">ColorGirl</a> is the e-commerce sibling.
         </p>
         <p>
           I am studying a Master of Artificial Intelligence at RMIT, focused on applied ML systems, LLM agents, and MLOps.

@@ -1,0 +1,289 @@
+/* Fonts: Nunito (UI) + Alfa Slab One (slab accent) + JetBrains Mono (data), loaded locally via @fontsource */
+@import '@fontsource/nunito/400.css';
+@import '@fontsource/nunito/600.css';
+@import '@fontsource/nunito/700.css';
+@import '@fontsource/nunito/800.css';
+@import '@fontsource/alfa-slab-one/400.css';
+@import '@fontsource/jetbrains-mono/400.css';
+@import '@fontsource/jetbrains-mono/500.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply font-sans bg-ink-900 text-fog leading-relaxed antialiased;
+    overflow-x: hidden;
+    font-feature-settings: 'cv11', 'ss01';
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-sans text-white leading-tight;
+  }
+
+  ::selection {
+    background: rgba(59, 130, 246, 0.35);
+    color: white;
+  }
+
+  :focus-visible {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+  }
+
+  a {
+    @apply text-white;
+    text-decoration: none;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply max-w-container mx-auto px-6 md:px-10;
+  }
+
+  /* Eyebrow: small all-caps tracking-widest accent */
+  .eyebrow {
+    @apply inline-flex items-center text-[11px] uppercase tracking-ultra text-accent/90;
+    font-weight: 600;
+  }
+
+  .eyebrow-muted {
+    @apply inline-flex items-center text-[11px] uppercase tracking-ultra text-fog-muted;
+    font-weight: 600;
+  }
+
+  /* Mono inline data */
+  .mono {
+    @apply font-mono text-[0.92em];
+  }
+
+  /* Buttons: match the original .btn-blue feel but tighter */
+  .btn {
+    @apply inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold rounded transition-all duration-200;
+    letter-spacing: 0.01em;
+  }
+
+  .btn-blue {
+    @apply btn bg-accent text-white border border-accent;
+  }
+  .btn-blue:hover {
+    @apply bg-accent-dark border-accent-dark;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px -8px rgba(59, 130, 246, 0.5);
+  }
+
+  .btn-blue-outline {
+    @apply btn bg-transparent text-white border border-white/20;
+  }
+  .btn-blue-outline:hover {
+    @apply text-accent border-accent;
+  }
+
+  .btn-ghost {
+    @apply btn bg-transparent text-fog hover:text-white;
+  }
+
+  .btn-small {
+    @apply px-4 py-2 text-xs;
+  }
+
+  /* Section title: Nunito heavy with tight tracking */
+  .section-title {
+    @apply text-3xl md:text-5xl font-extrabold tracking-snug text-white;
+  }
+
+  .section-sub {
+    @apply text-fog/80 mt-3 max-w-xl mx-auto leading-relaxed;
+  }
+
+  /* Underlined inline link */
+  .link-underline {
+    @apply text-accent border-b border-accent/60 hover:border-accent transition-colors;
+  }
+
+  /* Animated nav link with sliding underline */
+  .nav-link {
+    @apply relative text-sm tracking-wide text-fog/80 hover:text-white transition-colors;
+  }
+  .nav-link::after {
+    content: '';
+    @apply absolute left-0 -bottom-1 h-0.5 w-0 bg-accent transition-all duration-300;
+  }
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  /* Card */
+  .card {
+    @apply relative bg-ink-800/60 border border-white/[0.06] rounded-md p-6 transition-all duration-300 overflow-hidden;
+  }
+  .card-hover { cursor: pointer; }
+  .card-hover::before {
+    content: '';
+    @apply absolute inset-0 opacity-0 transition-opacity duration-300 pointer-events-none;
+    background: radial-gradient(600px at var(--mx, 50%) var(--my, 50%), rgba(59, 130, 246, 0.08), transparent 40%);
+  }
+  .card-hover:hover {
+    @apply border-accent/30 bg-ink-800/80;
+    transform: translateY(-2px);
+    box-shadow: 0 20px 50px -20px rgba(0, 0, 0, 0.6);
+  }
+  .card-hover:hover::before {
+    opacity: 1;
+  }
+
+  /* Scroll reveal */
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  }
+  .animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .delay-100 { transition-delay: 100ms; }
+  .delay-200 { transition-delay: 200ms; }
+  .delay-300 { transition-delay: 300ms; }
+  .delay-400 { transition-delay: 400ms; }
+  .delay-500 { transition-delay: 500ms; }
+
+  /* Scroll cue chevron: port from _header.scss .scroll-btn-container */
+  .scroll-cue {
+    @apply flex flex-col items-center;
+  }
+  .scroll-cue span {
+    display: block;
+    height: 14px;
+    width: 14px;
+    border-bottom: 2px solid #3b82f6;
+    border-right: 2px solid #3b82f6;
+    margin: -8px 0;
+    animation: scrollCue 2s infinite;
+  }
+  .scroll-cue span:nth-child(2) { animation-delay: -0.2s; }
+  .scroll-cue span:nth-child(3) { animation-delay: -0.4s; }
+
+  /* Tag pill */
+  .tag {
+    @apply inline-flex items-center px-2 py-0.5 text-[10.5px] uppercase tracking-widest text-fog/70 border border-white/10 rounded-sm font-mono;
+    font-weight: 500;
+  }
+
+  /* Stat / metric pill: for hero */
+  .stat {
+    @apply inline-flex items-baseline gap-1.5;
+  }
+  .stat-num {
+    @apply font-mono text-white text-base font-medium;
+  }
+  .stat-label {
+    @apply text-xs text-fog-muted uppercase tracking-widest;
+  }
+
+  /* Case study content typography */
+  .case-content h2 {
+    @apply font-sans text-2xl md:text-3xl text-white mt-14 mb-4 font-bold tracking-snug;
+  }
+  .case-content h3 {
+    @apply font-sans text-xl text-white mt-10 mb-3 font-semibold;
+  }
+  .case-content p {
+    @apply text-fog/90 leading-relaxed mt-4;
+  }
+  .case-content strong {
+    @apply text-white font-semibold;
+  }
+  .case-content a {
+    @apply text-accent hover:underline;
+  }
+  .case-content ul, .case-content ol {
+    @apply text-fog/90 leading-relaxed mt-4 ml-5 space-y-1.5;
+  }
+  .case-content ul { @apply list-disc; }
+  .case-content ol { @apply list-decimal; }
+  .case-content code {
+    @apply text-accent bg-ink-800/70 px-1.5 py-0.5 rounded text-[0.9em] font-mono;
+  }
+  .case-content pre {
+    @apply bg-ink-800/70 border border-white/5 rounded-md p-4 my-6 overflow-x-auto text-sm text-fog/90;
+  }
+  .case-content pre code {
+    @apply bg-transparent px-0 py-0 text-inherit;
+  }
+  .case-content blockquote {
+    @apply border-l-2 border-accent pl-4 my-6 text-fog/85 italic;
+  }
+  .case-content hr {
+    @apply border-white/10 my-10;
+  }
+  .case-content .case-meta {
+    @apply grid grid-cols-2 md:grid-cols-4 gap-4 my-8 not-italic;
+  }
+  .case-content .case-meta dt {
+    @apply text-[10.5px] uppercase tracking-widest text-fog-muted mb-1 font-mono;
+    font-weight: 500;
+  }
+  .case-content .case-meta dd {
+    @apply text-sm text-white;
+  }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+
+  /* Subtle grid texture */
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 60%, transparent 100%);
+  }
+
+  /* Soft accent halo for hero */
+  .halo-blue {
+    background: radial-gradient(60% 50% at 50% 30%, rgba(59,130,246,0.18), rgba(59,130,246,0) 70%);
+  }
+}
+
+/* Original parallax-logo positioning (port of _header.scss + dist/css/main.css) */
+#logo2 {
+  display: inline-block;
+}
+
+#logo {
+  position: relative;
+  margin: auto 0;
+  width: 170px;
+  aspect-ratio: 1000 / 556;
+  user-select: none;
+  z-index: 10;
+}
+
+@media (min-width: 768px) {
+  #logo { width: 220px; }
+}
+
+#logo > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+}
+
+@keyframes scrollCue {
+  0% { opacity: 0; transform: rotate(45deg) translate(-12px, -12px); }
+  50% { opacity: 1; }
+  100% { opacity: 0; transform: rotate(45deg) translate(12px, 12px); }
+}

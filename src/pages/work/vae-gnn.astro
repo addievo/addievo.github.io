@@ -1,0 +1,79 @@
+---
+import CaseStudyLayout from '../../layouts/CaseStudyLayout.astro';
+---
+
+<CaseStudyLayout
+  title="EarlyBuild · VAE-GNN"
+  description="EarlyBuild Studio: neural building generator and multi-objective optimisation dashboard for German architectural-AI client EarlyBuild GmbH. VAE-GNN inference engine plus NSGA-III pipeline across DIN 276 cost, energy, embodied carbon and floor area."
+  category="Applied ML · Architecture"
+  status="Capstone · client-deployed · live demo"
+  pitch="A full-stack neural building generator (EarlyBuild Studio) for a German architectural-AI client. VAE-GNN inference engine plus an NSGA-III multi-objective optimisation pipeline that lets architects explore the Pareto front across construction cost, energy, embodied carbon, and floor area."
+  nextSlug="logan"
+  nextTitle="Logan"
+>
+  <dl class="case-meta">
+    <div><dt>Stack</dt><dd>PyTorch · GATConv · pymoo · Flask · React 19 · Three.js · Mapbox GL · Recharts</dd></div>
+    <div><dt>Model</dt><dd>VAE-GNN · 136K params · 1.1M training samples</dd></div>
+    <div><dt>Client</dt><dd>EarlyBuild GmbH (DE)</dd></div>
+    <div><dt>Live demo</dt><dd><a href="https://earlybuild.adityav.au" target="_blank" rel="noopener">earlybuild.adityav.au</a></dd></div>
+  </dl>
+
+  <h2>Problem</h2>
+  <p>
+    Architects and urban planners need diverse, realistic 3D building geometries early in the design cycle: site planning, regulatory exploration, and trade-off analysis between cost, carbon, and floor area. Manual mass-modelling is slow, and optimising across competing objectives by hand doesn't scale beyond a handful of variants.
+  </p>
+  <p>
+    EarlyBuild GmbH wanted a generator that could synthesise plausible building geometries on demand <em>and</em> let architects walk the Pareto front of the objectives that actually matter on a German project: DIN 276 construction cost, 50-year operating cost, embodied + operational CO₂, and floor area.
+  </p>
+
+  <h2>Architecture</h2>
+  <p>EarlyBuild Studio is two systems: an inference backend and a dashboard.</p>
+  <h3>Backend (Flask + PyTorch + pymoo)</h3>
+  <ul>
+    <li><strong>VAE-GNN inference engine:</strong> V1 GATConv, 136,004 parameters, trained on 1.1M building samples. Encoder produces a latent representation; GNN layers with spatial attention capture inter-component relationships; four decoder heads produce geometry, height, building type, and vertices.</li>
+    <li><strong>NSGA-III optimisation pipeline:</strong> pymoo runs multi-objective optimisation across DIN 276 construction cost, 50-year operating cost, embodied + operational CO₂, and floor area. Coefficients are <strong>runtime-overridable</strong> via YAML or env vars so clients can tune the cost model without redeploying.</li>
+    <li><strong>AI4AD preference learning:</strong> a decision-tree classifier trains on user-saved designs to learn implicit aesthetic and programmatic preferences, then biases generation toward what this user has historically liked.</li>
+    <li><strong>Output:</strong> 8 building types (residential, commercial, industrial, office, retail, mixed, public, other), 3 complexity levels, configurable generation.</li>
+  </ul>
+
+  <h3>Dashboard (React 19 + TypeScript + Vite)</h3>
+  <ul>
+    <li><strong>Three.js</strong> for the interactive 3D viewer: building geometry rendered with material selection driven by building type.</li>
+    <li><strong>Mapbox GL JS</strong> for the urban context: buildings extruded onto a real basemap so planners see massing in situ.</li>
+    <li><strong>Recharts</strong> for the Pareto-front explorer: architects scrub across the trade-off surface and click into specific solutions.</li>
+    <li><strong>Unity3D integration</strong> via a Typogen formatter (128×128 grid constraints, automated material selection) so the same geometry can flow into VR/AR tooling downstream.</li>
+  </ul>
+
+  <h2>Approach</h2>
+  <ul>
+    <li><strong>VAE for diversity, GNN for structure.</strong> A pure VAE produces plausible-looking building shells but can't enforce inter-component relationships. The GNN layers with spatial attention make the geometry actually behave like a building, with components relating to each other consistently rather than floating independently.</li>
+    <li><strong>NSGA-III over NSGA-II.</strong> Four objectives (cost, energy, carbon, area) is in the regime where NSGA-III's reference-point machinery genuinely helps: the Pareto front isn't a 2D curve, and architects need a structured way to explore it.</li>
+    <li><strong>Runtime-overridable cost model.</strong> DIN 276 categories shift between projects (different regions, different client appetite for sustainability premium). Coefficients live in YAML and can be patched via env var so a client tweak doesn't require a release.</li>
+    <li><strong>Test surface.</strong> 17 test cases covering generation determinism, optimisation convergence and the API contract. Without these the model becomes an unverifiable black box for the architect using it.</li>
+  </ul>
+
+  <h2>Outcome</h2>
+  <p>
+    Live demo at <a href="https://earlybuild.adityav.au" target="_blank" rel="noopener">earlybuild.adityav.au</a>: the same EarlyBuild Studio shipped to the client, kept live as a portfolio surface. Forms the academic basis for the RMIT capstone project and underwrites the consulting relationship with EarlyBuild GmbH.
+  </p>
+
+  <div class="my-10 rounded-md overflow-hidden border border-white/10 bg-ink-800/40">
+    <iframe
+      src="https://earlybuild.adityav.au"
+      title="EarlyBuild Studio live demo"
+      loading="lazy"
+      class="w-full h-[600px] border-0"
+      sandbox="allow-scripts allow-same-origin allow-forms"
+    ></iframe>
+    <p class="text-xs text-fog-muted px-4 py-2 border-t border-white/10">
+      Live demo embedded from <a href="https://earlybuild.adityav.au" target="_blank" rel="noopener" class="text-accent">earlybuild.adityav.au</a>. If the embed fails to load, open it in a new tab.
+    </p>
+  </div>
+
+  <h2>Links</h2>
+  <ul>
+    <li><a href="https://earlybuild.adityav.au" target="_blank" rel="noopener">Live demo: earlybuild.adityav.au</a></li>
+    <li><a href="https://github.com/addievo/earlybuild-prog-proj1" target="_blank" rel="noopener">GitHub: addievo/earlybuild-prog-proj1</a> (capstone code)</li>
+    <li><a href="https://latticelabs.au" target="_blank" rel="noopener">Lattice Labs (commercial engagements)</a></li>
+  </ul>
+</CaseStudyLayout>

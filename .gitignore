@@ -1,1 +1,30 @@
+# Editor
 .idea
+.vscode
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Astro
+.astro/
+dist/
+
+# Cloudflare / Wrangler
+.wrangler/
+.dev.vars
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env
+.env
+.env.local
+.env.*.local
+
+# Tooling scratch
+.playwright-mcp/

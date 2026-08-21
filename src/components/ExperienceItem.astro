@@ -1,0 +1,21 @@
+---
+interface Props {
+  client: string;
+  role: string;
+  period: string;
+  outcome: string;
+  region?: string;
+}
+const { client, role, period, outcome, region } = Astro.props;
+---
+
+<li class="grid grid-cols-1 md:grid-cols-[1fr_2.2fr] gap-2 md:gap-12 py-7 border-b border-white/[0.06] last:border-b-0 animate-on-scroll">
+  <div>
+    <h3 class="text-white font-semibold text-base">
+      {client}{region && <span class="text-fog-muted font-normal text-sm"> · {region}</span>}
+    </h3>
+    <p class="text-xs text-fog-muted mt-1.5">{role}</p>
+    <p class="font-mono text-[11px] text-fog-muted/80 mt-1">{period}</p>
+  </div>
+  <p class="text-fog/85 text-sm leading-relaxed">{outcome}</p>
+</li>

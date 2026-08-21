@@ -1,0 +1,64 @@
+---
+import CaseStudyLayout from '../../layouts/CaseStudyLayout.astro';
+---
+
+<CaseStudyLayout
+  title="Logan"
+  description="Logan: multi-agent AI security remediation framework on the Anthropic Claude Agent SDK and Temporal. Automatically fixes vulnerabilities surfaced by upstream pentest audits, then re-runs the audit pipeline to validate the fixes."
+  category="OSS · Security"
+  status="AGPL-3.0 · in production"
+  pitch="A multi-agent remediation pipeline (11 agents, 7 phases) that automatically fixes vulnerabilities found by upstream pentest audits and then re-runs the audit pipeline to validate the fixes. Outputs a PR-ready git branch with atomic commits per fix group."
+  nextSlug="colorgirl"
+  nextTitle="ColorGirl"
+>
+  <dl class="case-meta">
+    <div><dt>Stack</dt><dd>TypeScript · Claude Agent SDK · Temporal · Docker · MCP</dd></div>
+    <div><dt>License</dt><dd>AGPL-3.0</dd></div>
+    <div><dt>Repo</dt><dd><a href="https://github.com/latticelabs-au/logan" target="_blank" rel="noopener">latticelabs-au/logan</a></dd></div>
+    <div><dt>Role</dt><dd>Author &amp; maintainer</dd></div>
+  </dl>
+
+  <h2>Problem</h2>
+  <p>
+    Pentest reports identify vulnerabilities, but they don't fix them. Engineering teams get a PDF, triage manually, and most fixes never make it back into the codebase. Pentest pipelines like Shannon (Keygraph) generate detailed CVE corpora, but the gap from "identified" to "fixed and re-validated" is where the security spend leaks.
+  </p>
+  <p>
+    Logan is the remediation layer Shannon doesn't ship. <em>Every Shannon needs a Logan.</em>
+  </p>
+
+  <h2>Architecture</h2>
+  <p>A 7-phase pipeline orchestrated through Temporal for durability (agents recover from crashes mid-run without losing partial work):</p>
+  <ol>
+    <li><strong>Triage</strong>: ingest Shannon report; classify and rank findings.</li>
+    <li><strong>Fix planning</strong>: produce a structured remediation plan per category, with explicit success criteria.</li>
+    <li><strong>Implementation</strong>: five parallel category fixers run simultaneously (SQL/command injection, XSS, authentication, SSRF, authorisation).</li>
+    <li><strong>Review</strong>: an independent reviewer agent evaluates each fix against the plan before any code is staged.</li>
+    <li><strong>Re-validation</strong>: <strong>re-runs the full Shannon pentest pipeline</strong> against the patched codebase. This is the key differentiator: it proves fixes actually work, not just that code was changed.</li>
+    <li><strong>Comparison</strong>: before/after vulnerability matrix.</li>
+    <li><strong>Reporting</strong>: executive report plus a PR-ready git branch with atomic commits grouped by fix category.</li>
+  </ol>
+
+  <h2>Approach</h2>
+  <ul>
+    <li><strong>Multi-agent, not monolithic.</strong> 11 specialised agents, each with a tight scope, structured tool-use contract, and a measurable handoff to the next phase. Easier to debug, safer to evolve, and cheaper to run because narrow agents need narrower prompts.</li>
+    <li><strong>Temporal for durability.</strong> A 7-phase pipeline running across an entire codebase can't afford to lose state when an LLM call times out. Temporal workflows handle retries, checkpoints and crash recovery transparently.</li>
+    <li><strong>MCP for tooling.</strong> Tool surfaces (filesystem, git, test runner, Shannon CLI) are exposed via MCP servers so each agent gets exactly the capabilities its role requires, and nothing broader.</li>
+    <li><strong>Validation in the loop.</strong> Re-running Shannon against the patched code closes the trust gap. A "fix" that doesn't move the needle on the pentest pipeline doesn't pass.</li>
+    <li><strong>Atomic, reviewable output.</strong> The output isn't a chat log: it's a git branch with one commit per fix category and an executive summary in the PR body. Reviewers can land or revert at the granularity that matches their risk model.</li>
+  </ul>
+
+  <h2>Outcome</h2>
+  <p>
+    Logan ships as the open-source arm of the Lattice Labs security work. Forked from Shannon (Keygraph) and extended with the remediation, validation, and PR-generation layers. AGPL-3.0 because the security tooling stack benefits from working in the open.
+  </p>
+  <p>
+    The deliverable is 11 structured artefacts per run (remediation plan, per-category fix specifications, before/after comparison matrix, executive report) and a PR-ready branch ready to merge.
+  </p>
+
+  <h2>Links</h2>
+  <ul>
+    <li><a href="https://github.com/latticelabs-au/logan" target="_blank" rel="noopener">GitHub: latticelabs-au/logan</a></li>
+    <li><a href="https://github.com/Keygraph/shannon" target="_blank" rel="noopener">Shannon (upstream pentest pipeline)</a></li>
+    <li><a href="https://latticelabs.au" target="_blank" rel="noopener">Lattice Labs (commercial engagements)</a></li>
+  </ul>
+</CaseStudyLayout>

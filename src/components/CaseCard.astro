@@ -1,0 +1,83 @@
+---
+interface Props {
+  slug: string;
+  title: string;
+  tagline: string;
+  category: string;
+  status?: 'production' | 'beta' | 'open-source' | 'capstone';
+  stack: string[];
+  metrics?: string[];
+  href?: string;
+  index?: number;
+}
+const {
+  slug,
+  title,
+  tagline,
+  category,
+  status,
+  stack,
+  metrics = [],
+  href,
+  index = 0,
+} = Astro.props;
+const target = href ?? `/work/${slug}`;
+const statusLabel: Record<string, string> = {
+  production: 'In production',
+  beta: 'In beta',
+  'open-source': 'AGPL-3.0 · OSS',
+  capstone: 'Live demo',
+};
+const indexLabel = String(index + 1).padStart(2, '0');
+---
+
+<a
+  href={target}
+  class="card card-hover group flex flex-col h-full animate-on-scroll"
+  data-slug={slug}
+  data-mouse-track
+>
+  <!-- top row: index + status -->
+  <div class="flex items-center justify-between mb-5">
+    <span class="font-mono text-xs text-fog-muted">/{indexLabel}</span>
+    {status && <span class="tag">{statusLabel[status]}</span>}
+  </div>
+
+  <!-- title block -->
+  <div class="mb-4">
+    <p class="eyebrow mb-2">{category}</p>
+    <h3 class="text-2xl md:text-3xl font-extrabold tracking-snug text-white group-hover:text-accent transition-colors leading-tight">{title}</h3>
+  </div>
+
+  <p class="text-fog/80 text-sm leading-relaxed mb-5 flex-1">{tagline}</p>
+
+  {
+    metrics.length > 0 && (
+      <ul class="flex flex-wrap gap-x-4 gap-y-1 mb-5 text-xs text-fog-muted font-mono">
+        {metrics.map((m) => (
+          <li class="before:content-['·'] before:mr-1.5 before:text-accent/60">{m}</li>
+        ))}
+      </ul>
+    )
+  }
+
+  <ul class="flex flex-wrap gap-1.5 mb-6">
+    {stack.map((s) => <li class="tag">{s}</li>)}
+  </ul>
+
+  <span class="inline-flex items-center gap-1.5 text-sm font-medium text-accent group-hover:gap-3 transition-all mt-auto">
+    Read case study
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+  </span>
+</a>
+
+<script>
+  // Mouse-tracked spotlight on cards
+  document.querySelectorAll('[data-mouse-track]').forEach((card) => {
+    card.addEventListener('mousemove', (e) => {
+      const r = (card as HTMLElement).getBoundingClientRect();
+      (card as HTMLElement).style.setProperty('--mx', `${e.clientX - r.left}px`);
+      (card as HTMLElement).style.setProperty('--my', `${e.clientY - r.top}px`);
+    });
+  });
+</script>

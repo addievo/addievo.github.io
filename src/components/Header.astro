@@ -1,0 +1,87 @@
+---
+interface Props {
+  /** Homepage: transparent nav with parallax 5-layer logo. Sub-pages: solid sticky nav with text wordmark. */
+  overlay?: boolean;
+  withParallaxLogo?: boolean;
+}
+const { overlay = false, withParallaxLogo = false } = Astro.props;
+const navClass = overlay
+  ? 'absolute inset-x-0 top-0 z-30 bg-transparent'
+  : 'sticky top-0 z-30 bg-ink-900/85 backdrop-blur border-b border-white/5';
+---
+
+<nav class={navClass}>
+  <div class="container-x flex items-center justify-between py-5 md:py-6">
+    {
+      withParallaxLogo ? (
+        <a href="/" id="logo2" aria-label="Aditya Varma, home">
+          <div id="logo">
+            <img src="/img/img1.png" alt="" draggable="false" />
+            <img src="/img/img2.png" alt="" draggable="false" />
+            <img src="/img/img3.png" alt="" draggable="false" />
+            <img src="/img/img4.png" alt="" draggable="false" />
+            <img src="/img/img5.png" alt="" draggable="false" />
+          </div>
+        </a>
+      ) : (
+        <a href="/" class="flex items-center gap-2 group" aria-label="Aditya Varma, home">
+          <span class="font-bold text-base tracking-tight text-white group-hover:text-accent transition-colors">
+            aditya<span class="text-accent">v</span><span class="text-fog-muted">.au</span>
+          </span>
+        </a>
+      )
+    }
+
+    <ul class="hidden md:flex items-center gap-7">
+      <li><a href="/#work" class="nav-link">Work</a></li>
+      <li><a href="/#experience" class="nav-link">Experience</a></li>
+      <li><a href="/#about" class="nav-link">About</a></li>
+      <li><a href="https://resume.adityav.au" target="_blank" rel="noopener" class="nav-link">Resume<span class="text-fog-muted/60">↗</span></a></li>
+      <li><a href="https://latticelabs.au" target="_blank" rel="noopener" class="nav-link">Lattice Labs<span class="text-fog-muted/60">↗</span></a></li>
+      <li><a href="/#contact" class="nav-link">Contact</a></li>
+    </ul>
+
+    <button
+      id="mobile-menu-btn"
+      class="md:hidden text-white/90 hover:text-white p-2"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="4" y1="7" x2="20" y2="7" />
+        <line x1="4" y1="12" x2="20" y2="12" />
+        <line x1="4" y1="17" x2="20" y2="17" />
+      </svg>
+    </button>
+  </div>
+
+  <div id="mobile-menu" class="hidden md:hidden border-t border-white/5 bg-ink-900/95 backdrop-blur">
+    <ul class="container-x flex flex-col gap-3 py-4 text-sm">
+      <li><a href="/#work" class="nav-link block py-1">Work</a></li>
+      <li><a href="/#experience" class="nav-link block py-1">Experience</a></li>
+      <li><a href="/#about" class="nav-link block py-1">About</a></li>
+      <li><a href="https://resume.adityav.au" target="_blank" rel="noopener" class="nav-link block py-1">Resume ↗</a></li>
+      <li><a href="https://latticelabs.au" target="_blank" rel="noopener" class="nav-link block py-1">Lattice Labs ↗</a></li>
+      <li><a href="/#contact" class="nav-link block py-1">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  if (btn && menu) {
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+      menu.classList.toggle('hidden');
+    });
+    menu.querySelectorAll('a').forEach((a) =>
+      a.addEventListener('click', () => {
+        menu.classList.add('hidden');
+        btn.setAttribute('aria-expanded', 'false');
+      }),
+    );
+  }
+</script>

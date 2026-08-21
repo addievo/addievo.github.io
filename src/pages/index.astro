@@ -1,0 +1,193 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import CaseCard from '../components/CaseCard.astro';
+import ExperienceItem from '../components/ExperienceItem.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout
+  title="Aditya Varma | Applied AI Engineer · Melbourne"
+  description="Applied AI Engineer in Melbourne. Founder & Principal at Lattice Labs Pty Ltd. Building production multi-agent LLM systems on the Anthropic Claude Agent SDK and Temporal. Logan, ColorGirl, Lattice Look, EarlyBuild Studio."
+>
+  <Hero />
+
+  <!-- WORK / CASE STUDIES -->
+  <section id="work" class="bg-ink-950 py-24 md:py-32 border-t border-white/[0.04]">
+    <div class="container-x">
+      <div class="mb-14 max-w-2xl">
+        <p class="eyebrow mb-3">Selected work</p>
+        <h2 class="section-title">Three production AI systems.</h2>
+        <p class="section-sub mx-0">Each shipped under Lattice Labs. Click any card for the full writeup, architecture, and links to code.</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-5 md:gap-6">
+        <CaseCard
+          slug="logan"
+          title="Logan"
+          tagline="Multi-agent AI security remediation framework that automatically fixes vulnerabilities surfaced by upstream pentest audits, then re-runs the full audit pipeline to validate the fix."
+          category="OSS · Security"
+          status="open-source"
+          stack={['TypeScript', 'Claude Agent SDK', 'Temporal', 'Docker', 'MCP']}
+          metrics={['11 agents', '7 phases', '5 parallel fixers']}
+          index={0}
+        />
+        <CaseCard
+          slug="colorgirl"
+          title="ColorGirl"
+          tagline="AI product-catalogue scraper that converts supplier e-commerce sites into WooCommerce-ready imports. Multi-model routing across Opus/Sonnet/Haiku, Temporal-orchestrated 9-phase pipeline with HITL approvals."
+          category="AI Pipelines · Commerce"
+          status="beta"
+          stack={['TypeScript', 'Node.js', 'Temporal', 'Ink/React', 'Playwright']}
+          metrics={['9-phase workflow', 'Multi-model routing', '~200 products/min']}
+          index={1}
+        />
+        <CaseCard
+          slug="vae-gnn"
+          title="EarlyBuild · VAE-GNN"
+          tagline="Neural building generator for German architectural-AI client EarlyBuild GmbH. VAE-GNN inference engine plus NSGA-III multi-objective optimisation across DIN 276 cost, energy, embodied carbon and floor area."
+          category="Applied ML · Architecture"
+          status="capstone"
+          stack={['PyTorch', 'GATConv', 'pymoo', 'Flask', 'React 19', 'Three.js']}
+          metrics={['136K params', '1.1M samples', 'DIN 276 multi-obj']}
+          index={2}
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="py-24 md:py-32">
+    <div class="container-x">
+      <div class="mb-14 max-w-2xl">
+        <p class="eyebrow mb-3">Production receipts</p>
+        <h2 class="section-title">Where the work has shipped.</h2>
+        <p class="section-sub mx-0">Five engagements with measurable outcomes. Most via Lattice Labs.</p>
+      </div>
+
+      <ul class="max-w-4xl">
+        <ExperienceItem
+          client="Cummins APAC"
+          region="9 countries"
+          role="Lattice Labs contractor (continued post-internship)"
+          period="Jan 2024 – Jun 2026"
+          outcome="Enterprise electrical-safety compliance platform for 1,000+ users across 55 branches; tracks 450+ high-risk workers, 1,698 active certificates, 27,971 induction records. Delivered AUD $400K+ annual labour-cost reduction by automating biweekly compliance reporting; 90% server-load reduction via automated Citrix session management. Selected for global expansion based on APAC success."
+        />
+        <ExperienceItem
+          client="Lattice Look"
+          role="Founder & Principal"
+          period="Jun 2025 – present"
+          outcome="Production multi-tenant SaaS WHS compliance platform (latticelook.au). Designed and shipped the full stack: FastAPI + React/Astro, PostgreSQL with row-level-security multi-tenancy, Redis, Celery/Beat, Stripe embedded billing, and a Go edge gateway with offline emergency roll call. Self-hosted on Dell PowerEdge with Patroni/etcd/HAProxy HA across Melbourne primary and Wollongong hot standby."
+        />
+        <ExperienceItem
+          client="EarlyBuild GmbH"
+          region="DE"
+          role="Lattice Labs consulting"
+          period="2025"
+          outcome="Full-stack neural building generator and multi-objective optimisation dashboard (EarlyBuild Studio). Built VAE-GNN inference engine (V1 GATConv, 136K parameters, 1.1M training samples) and NSGA-III pipeline with modular DIN 276 objectives across construction cost, 50-year operating cost, embodied + operational CO₂, and floor area. AI4AD preference learning via decision-tree classifier on user-saved designs."
+        />
+        <ExperienceItem
+          client="Precision Aviation Group"
+          region="US"
+          role="Lattice Labs consulting"
+          period="2025"
+          outcome="HSE compliance platform for global aviation MRO with 26 FAA repair stations and 1,200+ employees; FAA, OSHA, and state-specific tracking with hierarchical dashboards. Stack: React, FastAPI, PostgreSQL, AWS."
+        />
+        <ExperienceItem
+          client="MM-Architekt"
+          region="DE"
+          role="Lattice Labs consulting"
+          period="2025"
+          outcome="Full site rebuild for German architectural practice; 93% load-time reduction (30s → <2s) via Astro static generation and Cloudflare CDN."
+        />
+      </ul>
+
+      <!-- Education sub-strip -->
+      <div class="mt-16 max-w-4xl">
+        <p class="eyebrow-muted mb-5">Education</p>
+        <ul>
+          <ExperienceItem
+            client="RMIT University"
+            region="Melbourne"
+            role="Master of Artificial Intelligence (in progress)"
+            period="Jul 2026 – Jul 2028"
+            outcome="Part-time, concurrent with founder role. Specialisation focus: applied ML systems, LLM agents, MLOps."
+          />
+          <ExperienceItem
+            client="RMIT University"
+            region="Melbourne"
+            role="Bachelor of Computer Science (Distinction)"
+            period="Mar 2023 – Dec 2025"
+            outcome="GPA 3.5/4.0 · WAM 80.23. Dean's Merit Award 2023 and 2024."
+          />
+        </ul>
+      </div>
+
+      <div class="mt-12">
+        <a href="https://resume.adityav.au" target="_blank" rel="noopener" class="btn-blue-outline">
+          Full resume ↗
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="bg-ink-950 py-24 md:py-32 border-t border-white/[0.04]">
+    <div class="container-x grid grid-cols-1 md:grid-cols-[1fr_1.5fr] gap-10 md:gap-20 items-start">
+      <div class="animate-on-scroll">
+        <p class="eyebrow mb-3">About</p>
+        <h2 class="section-title">Hi, I'm <span class="text-accent">Aditya</span>.</h2>
+        <p class="text-fog-muted text-sm mt-3">
+          Melbourne, VIC · AU work rights<br />
+          Master of AI (RMIT, 2026–28) · BCompSci (Distinction)
+        </p>
+      </div>
+
+      <div class="space-y-5 text-fog/85 leading-relaxed animate-on-scroll delay-100">
+        <p class="text-base md:text-lg">
+          I'm an applied AI and full-stack engineer. I run <a href="https://latticelabs.au" target="_blank" rel="noopener" class="link-underline">Lattice Labs Pty Ltd</a>, a Melbourne consultancy that ships compliance platforms, agentic AI systems, and multi-tenant SaaS for AU and international clients.
+        </p>
+        <p>
+          The bulk of my work right now is in production agentic systems on the <strong class="text-white">Anthropic Claude Agent SDK + Temporal</strong>: durable orchestration, multi-model routing across Opus/Sonnet/Haiku, MCP servers, and structured tool-use over real corpora. <a href="/work/logan" class="link-underline">Logan</a> is the open-source flagship of that work; <a href="/work/colorgirl" class="link-underline">ColorGirl</a> is the e-commerce sibling.
+        </p>
+        <p>
+          I started a Master of Artificial Intelligence at RMIT in July 2026: part-time, concurrent with the founder role, focused on applied ML systems, LLM agents, and MLOps.
+        </p>
+        <p>
+          For paid work I engage through Lattice Labs (ABN active, GST registered, $10M PI / $20M PL). For everything else (recruiters, founders, friendly chats): <a href="mailto:aditya@varma.au" class="link-underline">email me directly</a>.
+        </p>
+
+        <div class="pt-5">
+          <p class="eyebrow-muted mb-3">Day-to-day stack</p>
+          <ul class="flex flex-wrap gap-1.5">
+            {['TypeScript', 'Python', 'Go', 'Claude Agent SDK', 'Temporal', 'MCP', 'FastAPI', 'PostgreSQL', 'Redis', 'Astro', 'React', 'Three.js', 'PyTorch', 'Cloudflare', 'AWS', 'Docker'].map((t) => (
+              <li class="tag">{t}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-24 md:py-32">
+    <div class="container-x text-center max-w-2xl mx-auto">
+      <p class="eyebrow mb-3">Contact</p>
+      <h2 class="section-title">Working on something interesting?</h2>
+      <p class="text-fog/85 mt-5 leading-relaxed text-base md:text-lg">
+        Email me directly for recruitment, founder chats, or technical questions. For paid engagements, book a call through Lattice Labs (the entity that quotes, invoices and indemnifies the work).
+      </p>
+      <div class="mt-9 flex flex-wrap items-center justify-center gap-3">
+        <a href="mailto:aditya@varma.au" class="btn-blue">
+          aditya@varma.au
+        </a>
+        <a href="https://latticelabs.au/booking" target="_blank" rel="noopener" class="btn-blue-outline">
+          Book via Lattice Labs ↗
+        </a>
+      </div>
+      <p class="text-xs text-fog-muted mt-6 font-mono">24–48hr response window</p>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

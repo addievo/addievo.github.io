@@ -1,0 +1,134 @@
+---
+import Header from './Header.astro';
+---
+
+<header id="hero" class="relative bg-ink-900 overflow-hidden">
+  <!-- Particles backdrop -->
+  <div id="particles-js" class="absolute inset-0 z-0" aria-hidden="true"></div>
+
+  <!-- Subtle grid texture over particles -->
+  <div class="absolute inset-0 grid-bg z-[1] pointer-events-none" aria-hidden="true"></div>
+
+  <!-- Soft accent halo above the headline -->
+  <div class="absolute inset-x-0 top-0 h-[80vh] halo-blue z-[1] pointer-events-none" aria-hidden="true"></div>
+
+  <!-- Nav (transparent overlay, parallax logo) -->
+  <div class="relative z-20">
+    <Header overlay withParallaxLogo />
+  </div>
+
+  <!-- Hero copy, centered -->
+  <div class="relative z-10 container-x flex flex-col items-center text-center pt-20 md:pt-28 pb-40 md:pb-48 min-h-[80vh]">
+    <p class="eyebrow mb-5 animate-on-scroll">
+      <span class="inline-block w-1.5 h-1.5 rounded-full bg-accent mr-2 animate-pulse"></span>
+      Applied AI Engineer · Melbourne · AU work rights
+    </p>
+
+    <h1 class="text-balance text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-snug text-white max-w-4xl leading-[1.05] animate-on-scroll delay-100">
+      I build <span class="text-accent">multi-agent AI</span> systems that ship to production.
+    </h1>
+
+    <p class="mt-7 max-w-2xl text-base md:text-lg text-fog/85 leading-relaxed animate-on-scroll delay-200">
+      Founder &amp; Principal at <a href="https://latticelabs.au" target="_blank" rel="noopener" class="link-underline">Lattice Labs Pty Ltd</a>.
+      Currently shipping <a href="/work/logan" class="link-underline">Logan</a> (AGPL-3.0 multi-agent security remediation),
+      <a href="/work/colorgirl" class="link-underline">ColorGirl</a> (AI product scraper) and
+      <a href="https://latticelook.au" target="_blank" rel="noopener" class="link-underline">Lattice Look</a> (multi-tenant compliance SaaS).
+    </p>
+
+    <div class="mt-9 flex flex-wrap items-center justify-center gap-3 animate-on-scroll delay-300">
+      <a href="mailto:aditya@varma.au" class="btn-blue">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        aditya@varma.au
+      </a>
+      <a href="https://latticelabs.au/booking" target="_blank" rel="noopener" class="btn-blue-outline">
+        Book via Lattice Labs ↗
+      </a>
+      <a href="https://github.com/addievo" target="_blank" rel="noopener" class="text-sm text-fog-muted hover:text-white transition-colors flex items-center gap-1.5 px-2 py-2.5">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.4-4-1.4-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.3.5-2.3 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.2 2.9.1 3.2.8.9 1.2 2 1.2 3.2 0 4.6-2.8 5.7-5.5 6 .5.4.9 1.2.9 2.3v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
+        github.com/addievo
+      </a>
+    </div>
+
+    <!-- Stat strip -->
+    <div class="mt-14 grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-5 max-w-2xl animate-on-scroll delay-500">
+      <div class="text-center">
+        <div class="font-mono text-white text-base md:text-lg">$400K+</div>
+        <div class="text-[10.5px] text-fog-muted uppercase tracking-widest mt-1">Cummins APAC<br/>labour saved</div>
+      </div>
+      <div class="text-center">
+        <div class="font-mono text-white text-base md:text-lg">11 / 7</div>
+        <div class="text-[10.5px] text-fog-muted uppercase tracking-widest mt-1">Agents / phases<br/>in Logan</div>
+      </div>
+      <div class="text-center">
+        <div class="font-mono text-white text-base md:text-lg">1.1M</div>
+        <div class="text-[10.5px] text-fog-muted uppercase tracking-widest mt-1">VAE-GNN training<br/>samples</div>
+      </div>
+      <div class="text-center">
+        <div class="font-mono text-white text-base md:text-lg">9</div>
+        <div class="text-[10.5px] text-fog-muted uppercase tracking-widest mt-1">APAC countries<br/>served</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll cue -->
+  <a href="#work" class="absolute bottom-14 left-1/2 -translate-x-1/2 z-10 scroll-cue text-fog-muted/80 hover:text-white transition-colors" aria-label="Scroll to work">
+    <span></span>
+    <span></span>
+    <span></span>
+  </a>
+</header>
+
+<!-- particles.js -->
+<script is:inline src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script is:inline>
+  if (typeof particlesJS !== 'undefined') {
+    particlesJS.load('particles-js', '/particles.json', () => {});
+  } else {
+    window.addEventListener('load', () => {
+      if (typeof particlesJS !== 'undefined') {
+        particlesJS.load('particles-js', '/particles.json', () => {});
+      }
+    });
+  }
+</script>
+
+<!-- Parallax 5-layer logo (port of dist/js/app.js) -->
+<script is:inline>
+  (function () {
+    const logo = document.getElementById('logo');
+    if (!logo) return;
+    const images = logo.querySelectorAll('img');
+    if (!images.length) return;
+    if (window.matchMedia('(hover: none)').matches) return;
+
+    const getActive = () => document.body.dataset.active === 'true';
+    const setActiveTo = (v) => (document.body.dataset.active = String(v));
+
+    function shift(image, index, rangeX, rangeY) {
+      const active = getActive();
+      const intensity = active ? 24 : 4;
+      const max = intensity * (index + 1);
+      const translation = `${max * rangeX}% ${max * rangeY}%`;
+      const scale = active ? 1 + index * 0.4 : 1;
+      image.animate(
+        { translate: translation, scale },
+        { duration: 750, fill: 'forwards', easing: 'ease' },
+      );
+    }
+    function shiftAll(rx, ry) { images.forEach((img, i) => shift(img, i, rx, ry)); }
+    function shiftLogo(e) {
+      const rect = logo.getBoundingClientRect();
+      const radius = 1000;
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      shiftAll((e.clientX - cx) / radius, (e.clientY - cy) / radius);
+    }
+    function reset() { setActiveTo(false); shiftAll(0.4, -0.7); }
+
+    window.addEventListener('mousemove', shiftLogo);
+    document.body.addEventListener('mouseleave', () => { if (!getActive()) reset(); });
+    window.addEventListener('mousedown', (e) => { setActiveTo(true); shiftLogo(e); });
+    window.addEventListener('mouseup', reset);
+    reset();
+  })();
+</script>

@@ -1,0 +1,31 @@
+{
+  "name": "adityav-au",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "cf:dev": "astro build && wrangler dev",
+    "cf:deploy": "astro build && wrangler deploy",
+    "cf:login": "wrangler login",
+    "verify": "npm run build && grep -q 'Founder' dist/index.html && ! grep -qiE 'Software Engineering Intern|commencing|student' dist/index.html && echo 'VERIFY OK'"
+  },
+  "dependencies": {
+    "@astrojs/cloudflare": "^12.6.12",
+    "@astrojs/sitemap": "^3.6.0",
+    "@astrojs/tailwind": "^6.0.2",
+    "@fontsource/alfa-slab-one": "^5.2.8",
+    "@fontsource/jetbrains-mono": "^5.2.8",
+    "@fontsource/nunito": "^5.2.7",
+    "astro": "^5.16.6",
+    "tailwindcss": "^3.4.0"
+  },
+  "devDependencies": {
+    "sharp": "^0.34.5",
+    "wrangler": "^4.56.0"
+  }
+}

@@ -1,0 +1,103 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonicalURL?: string;
+  ogImage?: string;
+}
+
+const siteURL = 'https://adityav.au';
+const {
+  title = 'Aditya Varma | Applied AI Engineer',
+  description = 'Aditya Varma, Applied AI Engineer in Melbourne. Founder & Principal of Lattice Labs Pty Ltd. Building production multi-agent LLM systems on the Anthropic Claude Agent SDK and Temporal.',
+  canonicalURL = siteURL + Astro.url.pathname,
+  ogImage = siteURL + '/img/logob.png',
+} = Astro.props;
+
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Aditya Varma',
+  alternateName: 'Addie',
+  jobTitle: 'Applied AI Engineer',
+  email: 'mailto:aditya@varma.au',
+  url: siteURL,
+  image: ogImage,
+  worksFor: {
+    '@type': 'Organization',
+    name: 'Lattice Labs Pty Ltd',
+    url: 'https://latticelabs.au',
+  },
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Melbourne',
+    addressRegion: 'VIC',
+    addressCountry: 'AU',
+  },
+  sameAs: [
+    'https://github.com/addievo',
+    'https://www.linkedin.com/in/addievo',
+    'https://latticelabs.au',
+    'https://latticelook.au',
+  ],
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png" />
+    <meta name="generator" content={Astro.generator} />
+
+    <link rel="canonical" href={canonicalURL} />
+
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="author" content="Aditya Varma" />
+    <meta name="robots" content="index, follow" />
+
+    <meta name="geo.region" content="AU-VIC" />
+    <meta name="geo.placename" content="Melbourne" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:site_name" content="Aditya Varma" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content="en_AU" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+  </head>
+  <body class="bg-ink-900 text-fog">
+    <slot />
+
+    <script>
+      // Scroll-reveal observer (mirrors LatticeLabsWebsite)
+      const observer = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          }
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -50px 0px' },
+      );
+      document.querySelectorAll('.animate-on-scroll').forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>
